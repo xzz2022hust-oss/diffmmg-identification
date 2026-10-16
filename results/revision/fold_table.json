@@ -1,0 +1,878 @@
+{
+  "schema_version": "1.0",
+  "description": "Leave-one-trial-out cross-validation with subset selection repeated independently in each fold.",
+  "manuscript_location": "Appendix D",
+  "independent_unit": "random-steering trial",
+  "n_folds": 9,
+  "training_updates_per_model": 500,
+  "shooting_segment": {
+    "steps": 50,
+    "dt_seconds": 0.1
+  },
+  "units": {
+    "training_loss": "dimensionless",
+    "held_out_shooting_loss": "dimensionless",
+    "held_out_60s_endpoint_position_mse_m2": "m^2",
+    "berthing_60s_endpoint_position_mse_m2": "m^2"
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "held_out_trial": "random_03-Aug-2020_11_04_37.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 13,
+        "shooting_segments": 161,
+        "reverse_propeller_fraction": 0.360621
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "coeff_drag_sway",
+            "w_prop_zero",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 26,
+          "overlap_with_main_K27": 25,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "coeff_drag_sway",
+            "w_prop_zero",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop",
+            "epsilon_rudder",
+            "bi_coeff_prop2",
+            "kx_rudder_reverse",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "ci_coeff_prop0",
+            "ai_coeff_prop4",
+            "xh_rudder_nd",
+            "coeff_drag_fore"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0268969,
+          "held_out_shooting_loss": 0.0132666,
+          "held_out_60s_endpoint_position_mse_m2": 0.916658,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0198209,
+          "held_out_shooting_loss": 0.00943588,
+          "held_out_60s_endpoint_position_mse_m2": 0.38002,
+          "berthing_60s_endpoint_position_mse_m2": 1.35778
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0203524,
+          "held_out_shooting_loss": 0.0104869,
+          "held_out_60s_endpoint_position_mse_m2": 0.544321,
+          "berthing_60s_endpoint_position_mse_m2": 1.1168
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0199491,
+          "held_out_shooting_loss": 0.00958037,
+          "held_out_60s_endpoint_position_mse_m2": 0.381086,
+          "berthing_60s_endpoint_position_mse_m2": 1.31495
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "held_out_trial": "random_06-Aug-2020_16_24_25_1.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 11,
+        "shooting_segments": 134,
+        "reverse_propeller_fraction": 0.291642
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 20,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "epsilon_rudder",
+            "t_prop",
+            "bi_coeff_prop1",
+            "yr_nd"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 26,
+          "overlap_with_main_K27": 25,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "epsilon_rudder",
+            "t_prop",
+            "bi_coeff_prop1",
+            "yr_nd",
+            "bi_coeff_prop2",
+            "kx_rudder_reverse",
+            "ai_coeff_prop4",
+            "ci_coeff_prop0",
+            "coeff_drag_fore",
+            "xh_rudder_nd"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0278374,
+          "held_out_shooting_loss": 0.0261438,
+          "held_out_60s_endpoint_position_mse_m2": 2.80315,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0207922,
+          "held_out_shooting_loss": 0.0156612,
+          "held_out_60s_endpoint_position_mse_m2": 1.15743,
+          "berthing_60s_endpoint_position_mse_m2": 1.44562
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0210222,
+          "held_out_shooting_loss": 0.015745,
+          "held_out_60s_endpoint_position_mse_m2": 1.22508,
+          "berthing_60s_endpoint_position_mse_m2": 1.11627
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0209343,
+          "held_out_shooting_loss": 0.0157693,
+          "held_out_60s_endpoint_position_mse_m2": 1.26751,
+          "berthing_60s_endpoint_position_mse_m2": 1.40253
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "held_out_trial": "random_06-Aug-2020_16_24_25_3.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 11,
+        "shooting_segments": 143,
+        "reverse_propeller_fraction": 0.339301
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 24,
+          "overlap_with_main_K27": 24,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop",
+            "epsilon_rudder",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "ai_coeff_prop4",
+            "kx_rudder_reverse",
+            "ci_coeff_prop0",
+            "bi_coeff_prop2"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0285098,
+          "held_out_shooting_loss": 0.0183371,
+          "held_out_60s_endpoint_position_mse_m2": 0.950936,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0210151,
+          "held_out_shooting_loss": 0.0127902,
+          "held_out_60s_endpoint_position_mse_m2": 0.270398,
+          "berthing_60s_endpoint_position_mse_m2": 1.37495
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0216332,
+          "held_out_shooting_loss": 0.013245,
+          "held_out_60s_endpoint_position_mse_m2": 0.341541,
+          "berthing_60s_endpoint_position_mse_m2": 1.17419
+        },
+        "Sub20-fold": {
+          "training_loss": 0.021191,
+          "held_out_shooting_loss": 0.0127281,
+          "held_out_60s_endpoint_position_mse_m2": 0.350237,
+          "berthing_60s_endpoint_position_mse_m2": 1.1524
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "held_out_trial": "random_06-Aug-2020_16_24_25_4.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 10,
+        "shooting_segments": 121,
+        "reverse_propeller_fraction": 0.270909
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 30,
+          "overlap_with_main_K27": 26,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop",
+            "epsilon_rudder",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "bi_coeff_prop2",
+            "ai_coeff_prop4",
+            "ci_coeff_prop0",
+            "kx_rudder_reverse",
+            "coeff_drag_fore",
+            "xh_rudder_nd",
+            "ci_coeff_prop2",
+            "ai_coeff_prop2",
+            "ai_coeff_prop1",
+            "coeff_cp_prop"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0271354,
+          "held_out_shooting_loss": 0.0257352,
+          "held_out_60s_endpoint_position_mse_m2": 2.05661,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0204183,
+          "held_out_shooting_loss": 0.0138121,
+          "held_out_60s_endpoint_position_mse_m2": 0.673796,
+          "berthing_60s_endpoint_position_mse_m2": 1.46525
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0210285,
+          "held_out_shooting_loss": 0.0141204,
+          "held_out_60s_endpoint_position_mse_m2": 0.788791,
+          "berthing_60s_endpoint_position_mse_m2": 1.19719
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0204571,
+          "held_out_shooting_loss": 0.0139796,
+          "held_out_60s_endpoint_position_mse_m2": 0.70534,
+          "berthing_60s_endpoint_position_mse_m2": 1.46888
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "held_out_trial": "random_06-Aug-2020_16_24_25_5.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 12,
+        "shooting_segments": 144,
+        "reverse_propeller_fraction": 0.285139
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "coeff_drag_sway",
+            "w_prop_zero",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 30,
+          "overlap_with_main_K27": 26,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "coeff_drag_sway",
+            "w_prop_zero",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop",
+            "epsilon_rudder",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "bi_coeff_prop2",
+            "ci_coeff_prop0",
+            "kx_rudder_reverse",
+            "ai_coeff_prop4",
+            "coeff_drag_fore",
+            "xh_rudder_nd",
+            "ci_coeff_prop2",
+            "ai_coeff_prop1",
+            "ai_coeff_prop2",
+            "coeff_cp_prop"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0276605,
+          "held_out_shooting_loss": 0.0121182,
+          "held_out_60s_endpoint_position_mse_m2": 0.884285,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0200003,
+          "held_out_shooting_loss": 0.0120472,
+          "held_out_60s_endpoint_position_mse_m2": 0.908422,
+          "berthing_60s_endpoint_position_mse_m2": 1.41902
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0205597,
+          "held_out_shooting_loss": 0.0126494,
+          "held_out_60s_endpoint_position_mse_m2": 0.714993,
+          "berthing_60s_endpoint_position_mse_m2": 1.14048
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0200514,
+          "held_out_shooting_loss": 0.0120172,
+          "held_out_60s_endpoint_position_mse_m2": 0.907224,
+          "berthing_60s_endpoint_position_mse_m2": 1.37457
+        }
+      }
+    },
+    {
+      "fold": 5,
+      "held_out_trial": "random_06-Aug-2020_16_24_25_6.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 11,
+        "shooting_segments": 138,
+        "reverse_propeller_fraction": 0.316667
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "bi_coeff_prop0",
+            "crn_cross_flow",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "lr_rudder_nd",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 28,
+          "overlap_with_main_K27": 25,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "bi_coeff_prop0",
+            "crn_cross_flow",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "lr_rudder_nd",
+            "t_prop",
+            "epsilon_rudder",
+            "kx_rudder_reverse",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "bi_coeff_prop2",
+            "ai_coeff_prop4",
+            "ci_coeff_prop0",
+            "coeff_drag_fore",
+            "xh_rudder_nd",
+            "ci_coeff_prop2",
+            "ai_coeff_prop1"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0273007,
+          "held_out_shooting_loss": 0.0230738,
+          "held_out_60s_endpoint_position_mse_m2": 1.07734,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0196781,
+          "held_out_shooting_loss": 0.0209919,
+          "held_out_60s_endpoint_position_mse_m2": 1.04835,
+          "berthing_60s_endpoint_position_mse_m2": 1.43171
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0203151,
+          "held_out_shooting_loss": 0.0209955,
+          "held_out_60s_endpoint_position_mse_m2": 1.02506,
+          "berthing_60s_endpoint_position_mse_m2": 1.14668
+        },
+        "Sub20-fold": {
+          "training_loss": 0.019792,
+          "held_out_shooting_loss": 0.0211298,
+          "held_out_60s_endpoint_position_mse_m2": 1.01765,
+          "berthing_60s_endpoint_position_mse_m2": 1.37841
+        }
+      }
+    },
+    {
+      "fold": 6,
+      "held_out_trial": "random_31-Jul-2020_12_29_58.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 11,
+        "shooting_segments": 136,
+        "reverse_propeller_fraction": 0.252059
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 18,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "t_prop",
+            "epsilon_rudder"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 31,
+          "overlap_with_main_K27": 26,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "nr_nd",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "crn_cross_flow",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "t_prop",
+            "epsilon_rudder",
+            "bi_coeff_prop2",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "ai_coeff_prop4",
+            "ci_coeff_prop0",
+            "coeff_drag_fore",
+            "ci_coeff_prop2",
+            "xh_rudder_nd",
+            "ai_coeff_prop2",
+            "kx_rudder_reverse",
+            "xp_prop_nd",
+            "ai_coeff_prop1",
+            "coeff_cp_prop"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0268777,
+          "held_out_shooting_loss": 0.0363108,
+          "held_out_60s_endpoint_position_mse_m2": 4.29994,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0199084,
+          "held_out_shooting_loss": 0.02552,
+          "held_out_60s_endpoint_position_mse_m2": 2.36636,
+          "berthing_60s_endpoint_position_mse_m2": 1.36686
+        },
+        "Sub15-fold": {
+          "training_loss": 0.020279,
+          "held_out_shooting_loss": 0.0264746,
+          "held_out_60s_endpoint_position_mse_m2": 2.62257,
+          "berthing_60s_endpoint_position_mse_m2": 1.22142
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0199553,
+          "held_out_shooting_loss": 0.0256426,
+          "held_out_60s_endpoint_position_mse_m2": 2.56163,
+          "berthing_60s_endpoint_position_mse_m2": 1.36933
+        }
+      }
+    },
+    {
+      "fold": 7,
+      "held_out_trial": "random_31-Jul-2020_12_48_39.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 17,
+        "shooting_segments": 209,
+        "reverse_propeller_fraction": 0.343445
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 17,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 27,
+          "overlap_with_main_K27": 25,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "gammaN_rudder",
+            "nr_nd",
+            "tau_prop",
+            "cry_cross_flow",
+            "ci_coeff_prop1",
+            "yv_nd",
+            "lr_rudder_nd",
+            "gammaP_rudder",
+            "bi_coeff_prop7",
+            "t_prop",
+            "epsilon_rudder",
+            "yr_nd",
+            "bi_coeff_prop1",
+            "bi_coeff_prop2",
+            "kx_rudder_reverse",
+            "ci_coeff_prop0",
+            "coeff_drag_fore",
+            "ai_coeff_prop4",
+            "xh_rudder_nd",
+            "coeff_cp_prop"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0262465,
+          "held_out_shooting_loss": 0.0216493,
+          "held_out_60s_endpoint_position_mse_m2": 1.30843,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0183158,
+          "held_out_shooting_loss": 0.0215847,
+          "held_out_60s_endpoint_position_mse_m2": 1.3206,
+          "berthing_60s_endpoint_position_mse_m2": 1.47232
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0189203,
+          "held_out_shooting_loss": 0.0218444,
+          "held_out_60s_endpoint_position_mse_m2": 1.33833,
+          "berthing_60s_endpoint_position_mse_m2": 1.15288
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0183931,
+          "held_out_shooting_loss": 0.0215746,
+          "held_out_60s_endpoint_position_mse_m2": 1.29337,
+          "berthing_60s_endpoint_position_mse_m2": 1.40326
+        }
+      }
+    },
+    {
+      "fold": 8,
+      "held_out_trial": "random_31-Jul-2020_14_52_18.csv",
+      "test_counts": {
+        "nonoverlapping_60s_windows": 10,
+        "shooting_segments": 125,
+        "reverse_propeller_fraction": 0.14912
+      },
+      "selection": {
+        "gamma_crit_15": {
+          "k": 19,
+          "overlap_with_main_K17": 17,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "gammaN_rudder",
+            "tau_prop",
+            "ci_coeff_prop1",
+            "cry_cross_flow",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "epsilon_rudder",
+            "t_prop",
+            "bi_coeff_prop1"
+          ]
+        },
+        "gamma_crit_20": {
+          "k": 27,
+          "overlap_with_main_K27": 26,
+          "members": [
+            "kx_rudder",
+            "nv_nd",
+            "w_prop_zero",
+            "coeff_drag_sway",
+            "bi_coeff_prop4",
+            "crn_cross_flow",
+            "bi_coeff_prop0",
+            "nr_nd",
+            "gammaN_rudder",
+            "tau_prop",
+            "ci_coeff_prop1",
+            "cry_cross_flow",
+            "yv_nd",
+            "lr_rudder_nd",
+            "bi_coeff_prop7",
+            "gammaP_rudder",
+            "epsilon_rudder",
+            "t_prop",
+            "bi_coeff_prop1",
+            "kx_rudder_reverse",
+            "yr_nd",
+            "ai_coeff_prop4",
+            "bi_coeff_prop2",
+            "ci_coeff_prop0",
+            "xh_rudder_nd",
+            "coeff_drag_fore",
+            "cpr_rudder"
+          ]
+        },
+        "gamma20_subset_identical_to_gamma15": false
+      },
+      "metrics": {
+        "EFD": {
+          "training_loss": 0.0241259,
+          "held_out_shooting_loss": 0.0847715,
+          "held_out_60s_endpoint_position_mse_m2": 8.60379,
+          "berthing_60s_endpoint_position_mse_m2": 2.52352
+        },
+        "DiffMMG-45-fold": {
+          "training_loss": 0.0173677,
+          "held_out_shooting_loss": 0.0662402,
+          "held_out_60s_endpoint_position_mse_m2": 2.27394,
+          "berthing_60s_endpoint_position_mse_m2": 1.30104
+        },
+        "Sub15-fold": {
+          "training_loss": 0.0178263,
+          "held_out_shooting_loss": 0.0648352,
+          "held_out_60s_endpoint_position_mse_m2": 2.48516,
+          "berthing_60s_endpoint_position_mse_m2": 1.21717
+        },
+        "Sub20-fold": {
+          "training_loss": 0.0175382,
+          "held_out_shooting_loss": 0.0651668,
+          "held_out_60s_endpoint_position_mse_m2": 2.40943,
+          "berthing_60s_endpoint_position_mse_m2": 1.24648
+        }
+      }
+    }
+  ]
+}
