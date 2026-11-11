@@ -23,6 +23,21 @@ DiffMMG implements the full MMG maneuvering model, including the four-quadrant p
 | `results/paper/` | Published RRQR order, sensitivity table, and collinearity curve |
 | `results/revision/` | JSON results added during peer-review revision: correlations, trial-level cross-validation, baselines, and KCS-start robustness |
 
+## Reproduction guide
+
+The table below maps the released entry points and paper configurations to the main manuscript results. The commands needed to regenerate the non-archival outputs are given in [Reproduce the paper workflow](#reproduce-the-paper-workflow); committed files under `results/paper/` and `results/revision/` are the machine-readable reference results for direct verification.
+
+| Manuscript result | Script or released file | Paper configuration | Output used for verification |
+|---|---|---|---|
+| Full 45-parameter calibration (Tables 3–6; Appendix A) | [`diffmmg.py`](diffmmg.py) | Adam, 1,000 updates, `lr=1e-3`, `seed=0`, `lambda_pose=0.3`, gradient clipping at 10 | `results/full/diffmmg_seed0.json` |
+| Trajectory sensitivity analysis (Figs. 3–4) | [`build_jacobian.py`](build_jacobian.py), [`subset_selection.py`](subset_selection.py) | DiffMMG-45 anchor, forward-mode JVPs, `tau_delta=1e-4` | [`results/paper/sensitivity_table.csv`](results/paper/sensitivity_table.csv) |
+| RRQR ordering and subset-size selection (Fig. 5; Table 7) | [`subset_selection.py`](subset_selection.py) | Column-pivoted QR, `gamma_crit=20`; reference thresholds 10 and 15 | [`results/paper/rrqr_order.json`](results/paper/rrqr_order.json), [`gamma_curve.csv`](results/paper/gamma_curve.csv), [`subset_primary.json`](results/paper/subset_primary.json) |
+| K = 27 and K = 17 subset calibration | [`train_selected_subset.py`](train_selected_subset.py) | Adam, 1,000 updates, `lr=1e-3`, `seed=0`; excluded parameters fixed at EFD values | `results/subset/diffmmg_K27_seed0.json`, `results/subset/diffmmg_K17_seed0.json` |
+| Held-out berthing prediction (Fig. 6; Tables 8–14) | [`evaluate_berthing.py`](evaluate_berthing.py) | Eight held-out berthing trials; 10, 30, 60, and 90 s non-overlapping windows | `results/berthing/berthing_windows.csv`, `results/berthing/berthing_summary.csv` |
+| KCS-initialization robustness (Appendix B) | [`results/revision/kcs_params.json`](results/revision/kcs_params.json) | Common bounds and sign constraints; KCS and EFD initializations | Calibrated coefficients and relative differences in the same JSON file |
+| Parameter uncertainty and correlation (Appendix C) | [`results/revision/correlation_44.json`](results/revision/correlation_44.json), [`correlation_K27.json`](results/revision/correlation_K27.json), [`correlation_K17.json`](results/revision/correlation_K17.json) | Cluster-robust sandwich covariance grouped by shooting segment | Full 44 x 44, 27 x 27, and 17 x 17 correlation matrices |
+| Leave-one-trial-out cross-validation (Appendix D) | [`results/revision/fold_table.json`](results/revision/fold_table.json) | Nine folds, 500 updates per model, subset selection repeated within each training fold | Fold-specific subsets, losses, and 60 s endpoint-position MSE |
+
 ## Installation
 
 The paper experiments used Python 3.9.18 and the pinned packages in `requirements.txt`. A GPU is not required.
@@ -98,7 +113,7 @@ Only the selected parameters are optimized. Every excluded parameter is reset to
 ### 4. Evaluate the held-out berthing trials
 
 ```bash
-python evaluate_berthing.py --model "DiffMMG-45=results/full/diffmmg_seed0.json" --model "DiffMMG-K27=results/subset/diffmmg_K27_seed0.json" --model "DiffMMG-K17=results/subset/diffmmg_K17_seed0.json" --threads 4 --output-dir results/berthing
+python evaluate_berthing.py --model "DiffMMG-45=results/full/diffmmg_seed0.json" --model "DiffMMG-K27=results/subset/diffmmg_K27_seed0.json" --model "DiffMMG-K17=results/subset/diffmmg_K17_seed0.json" --horizons 10 30 60 90 --threads 4 --output-dir results/berthing
 ```
 
 This writes per-window results to `results/berthing/berthing_windows.csv` and horizon summaries to `results/berthing/berthing_summary.csv`.
